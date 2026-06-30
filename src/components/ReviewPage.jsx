@@ -35,17 +35,49 @@ export default function ReviewPage({
         </div>
       </div>
 
-      {/* Title */}
-      <div className="text-center mb-8">
-        <span className="px-3 py-1 bg-amber-500/10 border border-amber-500/20 text-amber-400 rounded-full text-xs font-semibold uppercase tracking-wider">
-          Final Review
-        </span>
-        <h2 className="text-3xl font-extrabold text-white mt-3 tracking-tight">
-          Review Your Selections
-        </h2>
-        <p className="text-slate-400 text-sm mt-1">
-          Verify your choices below before submitting. Your vote remains completely anonymous.
-        </p>
+      {/* Title & Casting Action Bar */}
+      <div className="flex flex-col md:flex-row justify-between items-start md:items-center gap-4 mb-8 border-b border-slate-200/60 pb-6">
+        <div>
+          <span className="px-3 py-1 bg-amber-500/10 border border-amber-500/20 text-amber-400 rounded-full text-xs font-semibold uppercase tracking-wider">
+            Final Review
+          </span>
+          <h2 className="text-3xl font-extrabold text-white mt-3 tracking-tight">
+            Review Your Selections
+          </h2>
+          <p className="text-slate-400 text-sm mt-1">
+            Verify your choices below before submitting. Your vote remains completely anonymous.
+          </p>
+        </div>
+
+        {/* Navigation Action Buttons (Top) */}
+        <div className="flex items-center gap-3 w-full md:w-auto flex-shrink-0">
+          <button
+            onClick={onBack}
+            disabled={isSubmitting}
+            className="flex items-center gap-2 px-5 py-2.5 border border-slate-800 rounded-xl text-slate-400 hover:text-white hover:border-slate-700 active:scale-95 transition-all duration-200 text-sm font-semibold disabled:opacity-50 disabled:cursor-not-allowed"
+          >
+            <ArrowLeft className="w-4 h-4" />
+            Back
+          </button>
+          
+          <button
+            onClick={handleSubmit}
+            disabled={isSubmitting}
+            className="flex items-center gap-2 px-6 py-3 bg-emerald-600 hover:bg-emerald-500 text-white rounded-xl active:scale-95 transition-all duration-300 font-bold shadow-lg shadow-emerald-500/20 text-sm border border-emerald-500/30 text-center justify-center ml-auto"
+          >
+            {isSubmitting ? (
+              <>
+                <RefreshCw className="w-4 h-4 animate-spin" />
+                Recording...
+              </>
+            ) : (
+              <>
+                <Send className="w-4 h-4" />
+                Submit Ballot
+              </>
+            )}
+          </button>
+        </div>
       </div>
 
       {/* Side-by-Side Review Grid */}
@@ -153,35 +185,7 @@ export default function ReviewPage({
         🔒 By clicking "Submit Final Ballot", your votes will be encrypted and saved. The single-use PIN will be deactivated immediately, and you will not be able to vote again.
       </div>
 
-      {/* Casting Buttons */}
-      <div className="flex justify-between items-center gap-4 border-t border-slate-900 pt-6">
-        <button
-          onClick={onBack}
-          disabled={isSubmitting}
-          className="flex items-center gap-2 px-6 py-3 border border-slate-800 rounded-xl text-slate-400 hover:text-white hover:border-slate-700 active:scale-95 transition-all duration-200 font-semibold disabled:opacity-50 disabled:cursor-not-allowed"
-        >
-          <ArrowLeft className="w-4 h-4" />
-          Back
-        </button>
-        
-        <button
-          onClick={handleSubmit}
-          disabled={isSubmitting}
-          className="flex items-center gap-2 px-8 py-4 bg-emerald-600 hover:bg-emerald-500 text-white rounded-2xl active:scale-95 transition-all duration-300 font-bold shadow-lg shadow-emerald-500/20 text-lg border border-emerald-500/30 w-full md:w-auto text-center justify-center"
-        >
-          {isSubmitting ? (
-            <>
-              <RefreshCw className="w-5 h-5 animate-spin" />
-              Recording Ballot...
-            </>
-          ) : (
-            <>
-              <Send className="w-5 h-5" />
-              Submit Final Ballot
-            </>
-          )}
-        </button>
-      </div>
+
     </div>
   );
 }
