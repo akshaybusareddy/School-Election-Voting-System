@@ -98,16 +98,16 @@ export default function BallotPage({
 
               {/* Candidate Metadata */}
               <div className="text-center w-full mb-6">
+                {!candidate.isNota && candidate.party_name && (
+                  <p className="text-lg font-bold text-blue-600 mb-1">
+                    {candidate.party_name}
+                  </p>
+                )}
                 <h3 className="text-lg font-bold text-white tracking-tight leading-tight group-hover:text-blue-400 transition-colors duration-200">
                   {candidate.name}
                 </h3>
                 {!candidate.isNota && (
                   <div className="mt-1 space-y-1">
-                    {candidate.party_name && (
-                      <p className="text-lg font-bold text-blue-600">
-                        {candidate.party_name}
-                      </p>
-                    )}
                     {candidate.class_section && (
                       <p className="text-sm font-bold text-slate-500">
                         Class: {candidate.class_section}
