@@ -90,11 +90,9 @@ export default function App() {
       {/* Kiosk App Header */}
       <header className="py-5 px-6 border-b border-slate-900 bg-slate-950/40 backdrop-blur-sm flex items-center justify-between">
         <div className="flex items-center gap-2.5">
-          <div className="w-9 h-9 bg-blue-600/10 border border-blue-500/20 rounded-xl flex items-center justify-center text-blue-400 font-extrabold text-base shadow-inner">
-            🏫
-          </div>
+          <img src="/school-logo.png" alt="Little Angels Public School Logo" className="w-10 h-10 object-contain" />
           <div>
-            <h1 className="text-sm font-extrabold text-white tracking-wide uppercase">Academy Election</h1>
+            <h1 className="text-sm font-extrabold text-slate-800 tracking-wide uppercase leading-tight">Little Angels Public School</h1>
             <p className="text-[10px] text-slate-500 font-bold tracking-wider">Official Voting Terminal</p>
           </div>
         </div>

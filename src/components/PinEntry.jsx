@@ -79,13 +79,11 @@ export default function PinEntry({ onPinSubmit }) {
         <div className="absolute -bottom-10 -right-10 w-32 h-32 bg-cyan-600/10 rounded-full blur-3xl"></div>
 
         <div className="flex flex-col items-center mb-8">
-          <div className="w-16 h-16 bg-blue-600/10 border border-blue-500/30 rounded-2xl flex items-center justify-center text-blue-500 shadow-inner mb-4 animate-pulse-slow">
-            <Lock className="w-8 h-8" />
-          </div>
-          <h2 className="text-2xl font-bold tracking-tight text-white text-center">
-            School Voting Kiosk
+          <img src="/school-logo.png" alt="Little Angels Public School Logo" className="w-24 h-24 object-contain mb-4 animate-pulse-slow" />
+          <h2 className="text-2xl font-bold tracking-tight text-slate-800 text-center">
+            Little Angels Public School
           </h2>
-          <p className="text-slate-400 text-sm text-center mt-1">
+          <p className="text-slate-500 text-sm text-center mt-1">
             Please enter your single-use 6-character voting PIN.
           </p>
         </div>
