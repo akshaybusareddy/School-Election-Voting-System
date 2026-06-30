@@ -73,16 +73,16 @@ export default function ReviewPage({
               )}
             </div>
             {!splSelection?.isNota && splSelection && splSelection.party_name && (
-              <p className="text-xl font-bold text-blue-600 text-center mb-1">{splSelection.party_name}</p>
+              <p className="text-2xl font-black text-blue-600 text-center mb-1 tracking-tight">{splSelection.party_name}</p>
             )}
-            <h3 className="text-xl font-bold text-white tracking-tight text-center">
+            <h3 className="text-2xl font-extrabold text-white tracking-tight text-center">
               {splSelection?.name || 'No selection made'}
             </h3>
             <p className="text-xs text-blue-400 font-semibold uppercase tracking-widest mt-2">
               {splSelection?.isNota ? 'Abstaining' : 'School Pupil Leader'}
             </p>
             {!splSelection?.isNota && splSelection && splSelection.class_section && (
-              <p className="text-sm text-slate-500 font-semibold text-center mt-1">Class: {splSelection.class_section}</p>
+              <p className="text-base text-slate-500 font-semibold text-center mt-1">Class: {splSelection.class_section}</p>
             )}
           </div>
 
@@ -118,16 +118,16 @@ export default function ReviewPage({
               )}
             </div>
             {!asplSelection?.isNota && asplSelection && asplSelection.party_name && (
-              <p className="text-xl font-bold text-blue-600 text-center mb-1">{asplSelection.party_name}</p>
+              <p className="text-2xl font-black text-blue-600 text-center mb-1 tracking-tight">{asplSelection.party_name}</p>
             )}
-            <h3 className="text-xl font-bold text-white tracking-tight text-center">
+            <h3 className="text-2xl font-extrabold text-white tracking-tight text-center">
               {asplSelection?.name || 'No selection made'}
             </h3>
             <p className="text-xs text-blue-400 font-semibold uppercase tracking-widest mt-2">
               {asplSelection?.isNota ? 'Abstaining' : 'Assistant School Pupil Leader'}
             </p>
             {!asplSelection?.isNota && asplSelection && asplSelection.class_section && (
-              <p className="text-sm text-slate-500 font-semibold text-center mt-1">Class: {asplSelection.class_section}</p>
+              <p className="text-base text-slate-500 font-semibold text-center mt-1">Class: {asplSelection.class_section}</p>
             )}
           </div>
 
