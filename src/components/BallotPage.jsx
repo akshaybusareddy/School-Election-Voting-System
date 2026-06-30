@@ -13,16 +13,7 @@ export default function BallotPage({
   stepNumber,
   totalSteps = 3
 }) {
-  // Add a NOTA (None of the Above) candidate to the selection options
-  const notaCandidate = {
-    id: -1, // Special NOTA ID
-    name: 'None of the Above (NOTA)',
-    position: position,
-    image_url: null,
-    isNota: true
-  };
-
-  const allChoices = [...candidates, notaCandidate];
+  const allChoices = candidates;
 
   return (
     <div className="max-w-5xl w-full mx-auto px-4 py-6 animate-slide-up flex flex-col min-h-[calc(100vh-100px)]">

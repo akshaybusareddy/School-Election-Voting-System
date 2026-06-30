@@ -281,22 +281,8 @@ export default function AdminDashboard({ onClose }) {
       return { ...c, votesCount: count };
     });
 
-    const totalCandidateVotes = candidatesWithVotes.reduce((sum, c) => sum + c.votesCount, 0);
-    
-    // Total ballots cast is the number of used tokens
-    const totalBallotsCast = tokens.filter(t => t.is_used).length;
-    
-    // NOTA votes is total ballots cast minus total votes cast for candidates in this position
-    const notaVotes = Math.max(0, totalBallotsCast - totalCandidateVotes);
-
-    // Add NOTA to results visualization
-    const results = [
-      ...candidatesWithVotes,
-      { id: -1, name: 'NOTA (Abstain)', position, isNota: true, votesCount: notaVotes }
-    ];
-
     // Sort by votes
-    return results.sort((a, b) => b.votesCount - a.votesCount);
+    return candidatesWithVotes.sort((a, b) => b.votesCount - a.votesCount);
   };
 
   const getCandidateColorClass = (cand, index) => {
