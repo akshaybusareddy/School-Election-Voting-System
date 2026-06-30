@@ -293,6 +293,24 @@ export default function AdminDashboard({ onClose }) {
     return results.sort((a, b) => b.votesCount - a.votesCount);
   };
 
+  const getCandidateColorClass = (cand, index) => {
+    if (cand.isNota) return 'bg-slate-400';
+    const colors = [
+      'bg-blue-500',
+      'bg-emerald-500',
+      'bg-amber-500',
+      'bg-rose-500',
+      'bg-violet-500',
+      'bg-cyan-500',
+      'bg-orange-500',
+      'bg-pink-500',
+      'bg-indigo-500'
+    ];
+    const identifier = cand.id !== undefined && cand.id !== null ? cand.id : index;
+    const num = typeof identifier === 'number' ? identifier : (typeof identifier === 'string' ? identifier.charCodeAt(0) : index);
+    return colors[Math.abs(num) % colors.length];
+  };
+
   // Auth Screen
   if (!isAuthenticated) {
     return (
@@ -496,21 +514,25 @@ export default function AdminDashboard({ onClose }) {
                   {splResults.length <= 1 ? (
                     <p className="text-sm text-slate-500 text-center py-4">No candidates registered for SPL.</p>
                   ) : (
-                    splResults.map((cand) => {
+                    splResults.map((cand, idx) => {
                       const totalSplVotes = splResults.reduce((acc, curr) => acc + curr.votesCount, 0);
                       const percentage = totalSplVotes > 0 ? Math.round((cand.votesCount / totalSplVotes) * 100) : 0;
+                      const colorClass = getCandidateColorClass(cand, idx);
                       
                       return (
                         <div key={cand.id} className="space-y-2">
                           <div className="flex justify-between items-center text-sm font-semibold">
-                            <span className="text-slate-300 font-bold">{cand.name}</span>
-                            <span className="text-slate-400 font-mono">
+                            <div className="flex items-center gap-2">
+                              <span className={`w-3 h-3 rounded-full ${colorClass} shadow-sm`}></span>
+                              <span className="text-slate-700 font-bold">{cand.name}</span>
+                            </div>
+                            <span className="text-slate-500 font-mono">
                               {cand.votesCount} votes ({percentage}%)
                             </span>
                           </div>
-                          <div className="w-full h-4 bg-slate-950 rounded-lg border border-slate-800 overflow-hidden relative">
+                          <div className="w-full h-4 bg-slate-200/50 rounded-lg border border-slate-300 overflow-hidden relative">
                             <div 
-                              className={`h-full rounded-lg transition-all duration-500 ${cand.isNota ? 'bg-slate-700' : 'bg-blue-600'}`} 
+                              className={`h-full rounded-lg transition-all duration-500 ${colorClass}`} 
                               style={{ width: `${percentage}%` }}
                             ></div>
                           </div>
@@ -533,21 +555,25 @@ export default function AdminDashboard({ onClose }) {
                   {asplResults.length <= 1 ? (
                     <p className="text-sm text-slate-500 text-center py-4">No candidates registered for ASPL.</p>
                   ) : (
-                    asplResults.map((cand) => {
+                    asplResults.map((cand, idx) => {
                       const totalAsplVotes = asplResults.reduce((acc, curr) => acc + curr.votesCount, 0);
                       const percentage = totalAsplVotes > 0 ? Math.round((cand.votesCount / totalAsplVotes) * 100) : 0;
+                      const colorClass = getCandidateColorClass(cand, idx);
                       
                       return (
                         <div key={cand.id} className="space-y-2">
                           <div className="flex justify-between items-center text-sm font-semibold">
-                            <span className="text-slate-300 font-bold">{cand.name}</span>
-                            <span className="text-slate-400 font-mono">
+                            <div className="flex items-center gap-2">
+                              <span className={`w-3 h-3 rounded-full ${colorClass} shadow-sm`}></span>
+                              <span className="text-slate-700 font-bold">{cand.name}</span>
+                            </div>
+                            <span className="text-slate-500 font-mono">
                               {cand.votesCount} votes ({percentage}%)
                             </span>
                           </div>
-                          <div className="w-full h-4 bg-slate-950 rounded-lg border border-slate-800 overflow-hidden relative">
+                          <div className="w-full h-4 bg-slate-200/50 rounded-lg border border-slate-300 overflow-hidden relative">
                             <div 
-                              className={`h-full rounded-lg transition-all duration-500 ${cand.isNota ? 'bg-slate-700' : 'bg-indigo-600'}`} 
+                              className={`h-full rounded-lg transition-all duration-500 ${colorClass}`} 
                               style={{ width: `${percentage}%` }}
                             ></div>
                           </div>
