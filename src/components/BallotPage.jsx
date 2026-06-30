@@ -33,15 +33,38 @@ export default function BallotPage({
         </div>
       </div>
 
-      {/* Screen Title */}
-      <div className="text-center mb-8">
-        <span className="px-3 py-1 bg-blue-500/10 border border-blue-500/20 text-blue-400 rounded-full text-xs font-semibold uppercase tracking-wider">
-          Election Ballot
-        </span>
-        <h2 className="text-3xl font-extrabold text-white mt-3 tracking-tight">
-          {title}
-        </h2>
-        <p className="text-slate-400 text-sm mt-1">{subtitle}</p>
+      {/* Screen Title & Navigation Action Bar */}
+      <div className="flex flex-col md:flex-row justify-between items-start md:items-center gap-4 mb-8 border-b border-slate-200/60 pb-6">
+        <div>
+          <span className="px-3 py-1 bg-blue-500/10 border border-blue-500/20 text-blue-400 rounded-full text-xs font-semibold uppercase tracking-wider">
+            Step {stepNumber} of {totalSteps}
+          </span>
+          <h2 className="text-3xl font-extrabold text-white mt-3 tracking-tight">
+            {title}
+          </h2>
+          <p className="text-slate-400 text-sm mt-1">{subtitle}</p>
+        </div>
+
+        {/* Navigation Action Buttons (Top) */}
+        <div className="flex items-center gap-3 w-full md:w-auto">
+          {onBack && (
+            <button
+              onClick={onBack}
+              className="flex items-center gap-2 px-5 py-2.5 border border-slate-800 rounded-xl text-slate-400 hover:text-white hover:border-slate-700 active:scale-95 transition-all duration-200 text-sm font-semibold"
+            >
+              <ArrowLeft className="w-4 h-4" />
+              Back
+            </button>
+          )}
+          <button
+            onClick={onNext}
+            disabled={!selectedCandidate}
+            className="flex items-center gap-2 px-6 py-3 bg-blue-600 disabled:bg-slate-900 disabled:text-slate-600 disabled:border-slate-950 disabled:cursor-not-allowed hover:bg-blue-500 text-white rounded-xl active:scale-95 transition-all duration-200 font-bold shadow-lg shadow-blue-500/10 border border-blue-500/20 text-sm ml-auto"
+          >
+            Confirm & Continue
+            <ArrowRight className="w-4 h-4" />
+          </button>
+        </div>
       </div>
 
       {/* Candidates Grid */}
@@ -129,27 +152,7 @@ export default function BallotPage({
         })}
       </div>
 
-      {/* Navigation Footer */}
-      <div className="flex justify-between items-center gap-4 mt-12 border-t border-slate-900 pt-6">
-        {onBack && (
-          <button
-            onClick={onBack}
-            className="flex items-center gap-2 px-6 py-3 border border-slate-800 rounded-xl text-slate-400 hover:text-white hover:border-slate-700 active:scale-95 transition-all duration-200 font-semibold"
-          >
-            <ArrowLeft className="w-4 h-4" />
-            Back
-          </button>
-        )}
-        <div className="flex-grow"></div>
-        <button
-          onClick={onNext}
-          disabled={!selectedCandidate}
-          className="flex items-center gap-2 px-8 py-3 bg-blue-600 disabled:bg-slate-900 disabled:text-slate-600 disabled:border-slate-950 disabled:cursor-not-allowed hover:bg-blue-500 text-white rounded-xl active:scale-95 transition-all duration-200 font-bold shadow-lg shadow-blue-500/10 ml-auto border border-blue-500/20"
-        >
-          Confirm & Continue
-          <ArrowRight className="w-4 h-4" />
-        </button>
-      </div>
+
     </div>
   );
 }
