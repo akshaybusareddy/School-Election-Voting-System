@@ -82,7 +82,7 @@ export default function ReviewPage({
               {splSelection?.isNota ? 'Abstaining' : 'School Pupil Leader'}
             </p>
             {!splSelection?.isNota && splSelection && splSelection.class_section && (
-              <p className="text-xs text-slate-500 font-semibold text-center mt-1">Class: {splSelection.class_section}</p>
+              <p className="text-sm text-slate-500 font-semibold text-center mt-1">Class: {splSelection.class_section}</p>
             )}
           </div>
 
@@ -127,7 +127,7 @@ export default function ReviewPage({
               {asplSelection?.isNota ? 'Abstaining' : 'Assistant School Pupil Leader'}
             </p>
             {!asplSelection?.isNota && asplSelection && asplSelection.class_section && (
-              <p className="text-xs text-slate-500 font-semibold text-center mt-1">Class: {asplSelection.class_section}</p>
+              <p className="text-sm text-slate-500 font-semibold text-center mt-1">Class: {asplSelection.class_section}</p>
             )}
           </div>
 

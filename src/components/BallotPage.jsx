@@ -109,7 +109,7 @@ export default function BallotPage({
                       </p>
                     )}
                     {candidate.class_section && (
-                      <p className="text-xs font-bold text-slate-600">
+                      <p className="text-sm font-bold text-slate-500">
                         Class: {candidate.class_section}
                       </p>
                     )}
