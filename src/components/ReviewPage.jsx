@@ -75,18 +75,14 @@ export default function ReviewPage({
             <h3 className="text-xl font-bold text-white tracking-tight text-center">
               {splSelection?.name || 'No selection made'}
             </h3>
-            <p className="text-xs text-blue-400 font-semibold uppercase tracking-widest mt-1">
+            {!splSelection?.isNota && splSelection && splSelection.party_name && (
+              <p className="text-xl font-bold text-blue-600 text-center mt-1">🚩 {splSelection.party_name}</p>
+            )}
+            <p className="text-xs text-blue-400 font-semibold uppercase tracking-widest mt-2">
               {splSelection?.isNota ? 'Abstaining' : 'School Pupil Leader'}
             </p>
-            {!splSelection?.isNota && splSelection && (
-              <div className="text-center mt-2 space-y-0.5">
-                {splSelection.class_section && (
-                  <p className="text-xs text-slate-500 font-semibold">Class: {splSelection.class_section}</p>
-                )}
-                {splSelection.party_name && (
-                  <p className="text-xs text-slate-500 font-bold">🚩 {splSelection.party_name}</p>
-                )}
-              </div>
+            {!splSelection?.isNota && splSelection && splSelection.class_section && (
+              <p className="text-xs text-slate-500 font-semibold text-center mt-1">Class: {splSelection.class_section}</p>
             )}
           </div>
 
@@ -124,18 +120,14 @@ export default function ReviewPage({
             <h3 className="text-xl font-bold text-white tracking-tight text-center">
               {asplSelection?.name || 'No selection made'}
             </h3>
-            <p className="text-xs text-blue-400 font-semibold uppercase tracking-widest mt-1">
+            {!asplSelection?.isNota && asplSelection && asplSelection.party_name && (
+              <p className="text-xl font-bold text-blue-600 text-center mt-1">🚩 {asplSelection.party_name}</p>
+            )}
+            <p className="text-xs text-blue-400 font-semibold uppercase tracking-widest mt-2">
               {asplSelection?.isNota ? 'Abstaining' : 'Assistant School Pupil Leader'}
             </p>
-            {!asplSelection?.isNota && asplSelection && (
-              <div className="text-center mt-2 space-y-0.5">
-                {asplSelection.class_section && (
-                  <p className="text-xs text-slate-500 font-semibold">Class: {asplSelection.class_section}</p>
-                )}
-                {asplSelection.party_name && (
-                  <p className="text-xs text-slate-500 font-bold">🚩 {asplSelection.party_name}</p>
-                )}
-              </div>
+            {!asplSelection?.isNota && asplSelection && asplSelection.class_section && (
+              <p className="text-xs text-slate-500 font-semibold text-center mt-1">Class: {asplSelection.class_section}</p>
             )}
           </div>
 

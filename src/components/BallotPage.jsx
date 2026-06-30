@@ -102,15 +102,15 @@ export default function BallotPage({
                   {candidate.name}
                 </h3>
                 {!candidate.isNota && (
-                  <div className="mt-2 space-y-1">
+                  <div className="mt-1 space-y-1">
+                    {candidate.party_name && (
+                      <p className="text-lg font-bold text-blue-600">
+                        🚩 {candidate.party_name}
+                      </p>
+                    )}
                     {candidate.class_section && (
                       <p className="text-xs font-bold text-slate-600">
                         Class: {candidate.class_section}
-                      </p>
-                    )}
-                    {candidate.party_name && (
-                      <p className="text-[11px] font-bold text-blue-600 bg-blue-600/5 py-0.5 px-2.5 rounded-full inline-block border border-blue-500/10">
-                        🚩 {candidate.party_name}
                       </p>
                     )}
                   </div>
