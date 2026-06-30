@@ -16,6 +16,8 @@ export default function AdminDashboard({ onClose }) {
   // Candidate Form
   const [newCandName, setNewCandName] = useState('');
   const [newCandPos, setNewCandPos] = useState('SPL');
+  const [newCandParty, setNewCandParty] = useState('');
+  const [newCandClass, setNewCandClass] = useState('');
   const [imageFile, setImageFile] = useState(null);
   const [imagePreview, setImagePreview] = useState('');
 
@@ -176,12 +178,16 @@ export default function AdminDashboard({ onClose }) {
       const { error } = await supabase.from('candidates').insert({
         name: newCandName,
         position: newCandPos,
-        image_url: finalImageUrl
+        image_url: finalImageUrl,
+        party_name: newCandParty || null,
+        class_section: newCandClass || null
       });
 
       if (error) throw error;
       
       setNewCandName('');
+      setNewCandParty('');
+      setNewCandClass('');
       setImageFile(null);
       setImagePreview('');
       fetchAdminData();
@@ -730,6 +736,26 @@ export default function AdminDashboard({ onClose }) {
                         <option value="ASPL">Assistant School Pupil Leader (ASPL)</option>
                       </select>
                     </div>
+                    <div>
+                      <label className="block text-xs font-semibold text-slate-500 uppercase tracking-widest mb-1.5">Party Name</label>
+                      <input
+                        type="text"
+                        placeholder="e.g. Alliance Party, Independent"
+                        value={newCandParty}
+                        onChange={(e) => setNewCandParty(e.target.value)}
+                        className="w-full px-4 py-2 rounded-xl glass-input border border-slate-800"
+                      />
+                    </div>
+                    <div>
+                      <label className="block text-xs font-semibold text-slate-500 uppercase tracking-widest mb-1.5">Class & Section</label>
+                      <input
+                        type="text"
+                        placeholder="e.g. X-A, IX-C"
+                        value={newCandClass}
+                        onChange={(e) => setNewCandClass(e.target.value)}
+                        className="w-full px-4 py-2 rounded-xl glass-input border border-slate-800"
+                      />
+                    </div>
                     <div className="space-y-2">
                       <label className="block text-xs font-semibold text-slate-500 uppercase tracking-widest mb-1.5">Candidate Photo (Device Upload)</label>
                       <div className="relative">
@@ -786,9 +812,21 @@ export default function AdminDashboard({ onClose }) {
                           />
                           <div>
                             <h4 className="font-bold text-white text-sm">{cand.name}</h4>
-                            <span className="inline-block px-2 py-0.5 bg-blue-500/10 border border-blue-500/20 text-blue-400 rounded-full text-[10px] font-bold uppercase tracking-wider mt-1">
-                              {cand.position}
-                            </span>
+                            <div className="flex flex-wrap gap-1.5 items-center mt-1">
+                              <span className="inline-block px-2 py-0.5 bg-blue-500/10 border border-blue-500/20 text-blue-400 rounded-full text-[10px] font-bold uppercase tracking-wider">
+                                {cand.position}
+                              </span>
+                              {cand.class_section && (
+                                <span className="inline-block px-2 py-0.5 bg-slate-500/10 border border-slate-500/20 text-slate-400 rounded-full text-[10px] font-bold">
+                                  Class: {cand.class_section}
+                                </span>
+                              )}
+                              {cand.party_name && (
+                                <span className="inline-block px-2 py-0.5 bg-emerald-500/10 border border-emerald-500/20 text-emerald-400 rounded-full text-[10px] font-bold">
+                                  🚩 {cand.party_name}
+                                </span>
+                              )}
+                            </div>
                           </div>
                         </div>
                         <button

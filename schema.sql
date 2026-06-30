@@ -8,6 +8,8 @@ CREATE TABLE IF NOT EXISTS public.candidates (
   name text NOT NULL,
   position text NOT NULL CHECK (position IN ('SPL', 'ASPL')),
   image_url text,
+  party_name text,
+  class_section text,
   created_at timestamp with time zone DEFAULT now()
 );
 
@@ -152,3 +154,7 @@ ON storage.objects FOR INSERT WITH CHECK (bucket_id = 'candidate-images');
 DROP POLICY IF EXISTS "Allow public delete access to candidate-images" ON storage.objects;
 CREATE POLICY "Allow public delete access to candidate-images"
 ON storage.objects FOR DELETE USING (bucket_id = 'candidate-images');
+
+-- Ensure existing databases get the new columns
+ALTER TABLE public.candidates ADD COLUMN IF NOT EXISTS party_name text;
+ALTER TABLE public.candidates ADD COLUMN IF NOT EXISTS class_section text;

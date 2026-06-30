@@ -101,9 +101,25 @@ export default function BallotPage({
                 <h3 className="text-lg font-bold text-white tracking-tight leading-tight group-hover:text-blue-400 transition-colors duration-200">
                   {candidate.name}
                 </h3>
-                <p className="text-xs font-semibold text-slate-500 mt-1 uppercase tracking-widest">
-                  {candidate.isNota ? 'Abstain' : `${position} Candidate`}
-                </p>
+                {!candidate.isNota && (
+                  <div className="mt-2 space-y-1">
+                    {candidate.class_section && (
+                      <p className="text-xs font-bold text-slate-600">
+                        Class: {candidate.class_section}
+                      </p>
+                    )}
+                    {candidate.party_name && (
+                      <p className="text-[11px] font-bold text-blue-600 bg-blue-600/5 py-0.5 px-2.5 rounded-full inline-block border border-blue-500/10">
+                        🚩 {candidate.party_name}
+                      </p>
+                    )}
+                  </div>
+                )}
+                {candidate.isNota && (
+                  <p className="text-xs font-semibold text-slate-500 mt-1 uppercase tracking-widest">
+                    Abstain
+                  </p>
+                )}
               </div>
 
               {/* Selection Button */}

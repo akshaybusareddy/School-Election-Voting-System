@@ -4,12 +4,12 @@ const supabaseUrl = import.meta.env.VITE_SUPABASE_URL;
 const supabaseAnonKey = import.meta.env.VITE_SUPABASE_ANON_KEY;
 
 const MOCK_CANDIDATES = [
-  { id: 1, name: 'Arjun Kumar', position: 'SPL', image_url: 'https://api.dicebear.com/7.x/adventurer/svg?seed=arjun' },
-  { id: 2, name: 'Sophia Sen', position: 'SPL', image_url: 'https://api.dicebear.com/7.x/adventurer/svg?seed=sophia' },
-  { id: 3, name: 'Kabir Dev', position: 'SPL', image_url: 'https://api.dicebear.com/7.x/adventurer/svg?seed=kabir' },
-  { id: 4, name: 'Vikram Shah', position: 'ASPL', image_url: 'https://api.dicebear.com/7.x/adventurer/svg?seed=vikram' },
-  { id: 5, name: 'Ananya Roy', position: 'ASPL', image_url: 'https://api.dicebear.com/7.x/adventurer/svg?seed=ananya' },
-  { id: 6, name: 'Diya Bose', position: 'ASPL', image_url: 'https://api.dicebear.com/7.x/adventurer/svg?seed=diya' }
+  { id: 1, name: 'Arjun Kumar', position: 'SPL', image_url: 'https://api.dicebear.com/7.x/adventurer/svg?seed=arjun', party_name: 'Alliance Party', class_section: 'X-A' },
+  { id: 2, name: 'Sophia Sen', position: 'SPL', image_url: 'https://api.dicebear.com/7.x/adventurer/svg?seed=sophia', party_name: 'Progressive Union', class_section: 'X-B' },
+  { id: 3, name: 'Kabir Dev', position: 'SPL', image_url: 'https://api.dicebear.com/7.x/adventurer/svg?seed=kabir', party_name: 'Independent', class_section: 'X-C' },
+  { id: 4, name: 'Vikram Shah', position: 'ASPL', image_url: 'https://api.dicebear.com/7.x/adventurer/svg?seed=vikram', party_name: 'Alliance Party', class_section: 'IX-A' },
+  { id: 5, name: 'Ananya Roy', position: 'ASPL', image_url: 'https://api.dicebear.com/7.x/adventurer/svg?seed=ananya', party_name: 'Progressive Union', class_section: 'IX-B' },
+  { id: 6, name: 'Diya Bose', position: 'ASPL', image_url: 'https://api.dicebear.com/7.x/adventurer/svg?seed=diya', party_name: 'Independent', class_section: 'IX-C' }
 ];
 
 // Initialize localStorage with mock data if needed

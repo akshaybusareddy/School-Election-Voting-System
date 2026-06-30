@@ -78,6 +78,16 @@ export default function ReviewPage({
             <p className="text-xs text-blue-400 font-semibold uppercase tracking-widest mt-1">
               {splSelection?.isNota ? 'Abstaining' : 'School Pupil Leader'}
             </p>
+            {!splSelection?.isNota && splSelection && (
+              <div className="text-center mt-2 space-y-0.5">
+                {splSelection.class_section && (
+                  <p className="text-xs text-slate-500 font-semibold">Class: {splSelection.class_section}</p>
+                )}
+                {splSelection.party_name && (
+                  <p className="text-xs text-slate-500 font-bold">🚩 {splSelection.party_name}</p>
+                )}
+              </div>
+            )}
           </div>
 
           <button
@@ -117,6 +127,16 @@ export default function ReviewPage({
             <p className="text-xs text-blue-400 font-semibold uppercase tracking-widest mt-1">
               {asplSelection?.isNota ? 'Abstaining' : 'Assistant School Pupil Leader'}
             </p>
+            {!asplSelection?.isNota && asplSelection && (
+              <div className="text-center mt-2 space-y-0.5">
+                {asplSelection.class_section && (
+                  <p className="text-xs text-slate-500 font-semibold">Class: {asplSelection.class_section}</p>
+                )}
+                {asplSelection.party_name && (
+                  <p className="text-xs text-slate-500 font-bold">🚩 {asplSelection.party_name}</p>
+                )}
+              </div>
+            )}
           </div>
 
           <button
