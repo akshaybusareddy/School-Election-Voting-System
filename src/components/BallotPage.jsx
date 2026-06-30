@@ -105,7 +105,7 @@ export default function BallotPage({
                   <div className="mt-1 space-y-1">
                     {candidate.party_name && (
                       <p className="text-lg font-bold text-blue-600">
-                        🚩 {candidate.party_name}
+                        {candidate.party_name}
                       </p>
                     )}
                     {candidate.class_section && (

@@ -823,7 +823,7 @@ export default function AdminDashboard({ onClose }) {
                               )}
                               {cand.party_name && (
                                 <span className="inline-block px-2 py-0.5 bg-emerald-500/10 border border-emerald-500/20 text-emerald-400 rounded-full text-[10px] font-bold">
-                                  🚩 {cand.party_name}
+                                  {cand.party_name}
                                 </span>
                               )}
                             </div>

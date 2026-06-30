@@ -76,7 +76,7 @@ export default function ReviewPage({
               {splSelection?.name || 'No selection made'}
             </h3>
             {!splSelection?.isNota && splSelection && splSelection.party_name && (
-              <p className="text-xl font-bold text-blue-600 text-center mt-1">🚩 {splSelection.party_name}</p>
+              <p className="text-xl font-bold text-blue-600 text-center mt-1">{splSelection.party_name}</p>
             )}
             <p className="text-xs text-blue-400 font-semibold uppercase tracking-widest mt-2">
               {splSelection?.isNota ? 'Abstaining' : 'School Pupil Leader'}
@@ -121,7 +121,7 @@ export default function ReviewPage({
               {asplSelection?.name || 'No selection made'}
             </h3>
             {!asplSelection?.isNota && asplSelection && asplSelection.party_name && (
-              <p className="text-xl font-bold text-blue-600 text-center mt-1">🚩 {asplSelection.party_name}</p>
+              <p className="text-xl font-bold text-blue-600 text-center mt-1">{asplSelection.party_name}</p>
             )}
             <p className="text-xs text-blue-400 font-semibold uppercase tracking-widest mt-2">
               {asplSelection?.isNota ? 'Abstaining' : 'Assistant School Pupil Leader'}
