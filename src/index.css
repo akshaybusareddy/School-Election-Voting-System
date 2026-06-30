@@ -1,0 +1,65 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  body {
+    @apply bg-slate-950 text-slate-100 min-h-screen antialiased select-none overflow-x-hidden;
+    background-image: 
+      radial-gradient(at 0% 0%, rgba(30, 58, 138, 0.25) 0px, transparent 50%),
+      radial-gradient(at 100% 100%, rgba(37, 99, 235, 0.15) 0px, transparent 50%),
+      radial-gradient(at 50% 0%, rgba(15, 23, 42, 0.8) 0px, transparent 100%);
+  }
+}
+
+/* Custom Glassmorphism styles */
+.glass-panel {
+  @apply bg-slate-900/60 backdrop-blur-md border border-slate-800/80 shadow-2xl;
+}
+
+.glass-card {
+  @apply bg-slate-900/40 backdrop-blur-sm border border-slate-800/50 hover:border-blue-500/30 transition-all duration-300 shadow-lg;
+}
+
+.glass-input {
+  @apply bg-slate-950/50 border border-slate-800 focus:border-blue-500 focus:ring-2 focus:ring-blue-500/20 transition-all duration-200 outline-none text-white;
+}
+
+/* Animations */
+@keyframes slide-up {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes fade-in {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+.animate-slide-up {
+  animation: slide-up 0.5s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+
+.animate-fade-in {
+  animation: fade-in 0.3s ease-out forwards;
+}
+
+/* Smooth selection ring */
+.selected-ring {
+  @apply ring-4 ring-blue-500 ring-offset-4 ring-offset-slate-950 border-blue-500 shadow-[0_0_25px_rgba(59,130,246,0.3)];
+}
+
+/* Touch targets optimization */
+button, a {
+  -webkit-tap-highlight-color: transparent;
+}
