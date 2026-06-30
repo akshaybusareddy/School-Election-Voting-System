@@ -54,7 +54,7 @@ export default function BallotPage({
       </div>
 
       {/* Candidates Grid */}
-      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 flex-grow items-stretch">
+      <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4 flex-grow items-stretch max-w-7xl mx-auto w-full">
         {allChoices.map((candidate) => {
           const isSelected = selectedCandidate?.id === candidate.id;
           
@@ -62,7 +62,7 @@ export default function BallotPage({
             <div
               key={candidate.id}
               onClick={() => onSelectCandidate(candidate)}
-              className={`glass-card rounded-2xl p-6 flex flex-col items-center justify-between cursor-pointer transition-all duration-300 relative select-none group ${
+              className={`glass-card rounded-2xl p-5 lg:p-4 flex flex-col items-center justify-between cursor-pointer transition-all duration-300 relative select-none group ${
                 isSelected 
                   ? 'selected-ring border-blue-500 bg-blue-950/20' 
                   : 'hover:-translate-y-1 hover:shadow-blue-500/5 hover:border-slate-700'
@@ -76,7 +76,7 @@ export default function BallotPage({
               )}
 
               {/* Candidate Image/Avatar */}
-              <div className="w-40 h-40 md:w-48 md:h-48 rounded-2xl mb-4 flex items-center justify-center overflow-hidden border-2 border-slate-800 bg-slate-950/50 group-hover:border-blue-500/30 transition-all duration-300 relative shadow-inner">
+              <div className="w-36 h-36 lg:w-40 lg:h-40 rounded-2xl mb-4 flex items-center justify-center overflow-hidden border-2 border-slate-800 bg-slate-950/50 group-hover:border-blue-500/30 transition-all duration-300 relative shadow-inner">
                 {candidate.isNota ? (
                   <div className="w-full h-full bg-slate-900/80 flex items-center justify-center text-slate-500 font-bold text-3xl font-mono">
                     ❌
