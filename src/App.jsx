@@ -28,7 +28,10 @@ export default function App() {
 
   const loadCandidates = async () => {
     try {
-      const { data, error } = await supabase.from('candidates').select('*');
+      const { data, error } = await supabase
+        .from('candidates')
+        .select('*')
+        .order('name', { ascending: true });
       if (error) throw error;
       setCandidates(data || []);
     } catch (err) {
